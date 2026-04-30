@@ -1,1 +1,969 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <title>InterTech | Equipamentos Seminovos</title>
+  <meta name="description" content="InterTech: venda de equipamentos seminovos selecionados, revisados e prontos para uso profissional.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://www.seusite.com.br/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="InterTech | Equipamentos Seminovos">
+  <meta property="og:description" content="Equipamentos seminovos selecionados, revisados e prontos para uso profissional.">
+  <meta property="og:url" content="https://www.seusite.com.br/">
+  <meta property="og:image" content="https://www.seusite.com.br/SRC/INTERTECH-01.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1350">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="InterTech | Equipamentos Seminovos">
+  <meta name="twitter:description" content="Equipamentos seminovos selecionados, revisados e prontos para uso profissional.">
+  <meta name="twitter:image" content="https://www.seusite.com.br/SRC/INTERTECH-01.png">
+
+  <link rel="icon" href="SRC/favicon.png">
+  <link rel="apple-touch-icon" href="SRC/favicon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "InterTech",
+    "description": "Empresa especializada na venda de equipamentos seminovos.",
+    "url": "https://www.seusite.com.br/",
+    "logo": "https://www.seusite.com.br/SRC/LOGO_INTERTECH_EQUIPAMENTOS.png"
+  }
+  </script>
+
+  <style>
+    :root {
+      --p1:#ca6b95;
+      --p2:#9b4f84;
+      --p3:#6f3574;
+      --white:#fff;
+      --bg:#fbfbfd;
+      --gray:#6b7280;
+      --light:#f3f4f6;
+      --dark:#171717;
+      --border:rgba(17,17,17,.08);
+      --shadow:0 20px 50px rgba(15,15,15,.08);
+      --radius:28px;
+      --grad:linear-gradient(135deg,var(--p1),var(--p2),var(--p3));
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      min-height:100vh;
+      overflow-x:hidden;
+      background:
+        radial-gradient(circle at top left,rgba(202,107,149,.10),transparent 34%),
+        radial-gradient(circle at bottom right,rgba(111,53,116,.08),transparent 36%),
+        var(--bg);
+      color:var(--dark);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    body.modal-open {
+      overflow:hidden;
+    }
+
+    img,svg {
+      display:block;
+    }
+
+    img {
+      max-width:100%;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,input,select,textarea {
+      font:inherit;
+    }
+
+    .container {
+      width:min(1120px,calc(100% - 32px));
+      margin-inline:auto;
+    }
+
+    .header {
+      position:fixed;
+      top:20px;
+      left:50%;
+      z-index:50;
+      transform:translateX(-50%);
+      width:min(1120px,calc(100% - 32px));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:12px 16px 12px 20px;
+      border:1px solid rgba(255,255,255,.78);
+      border-radius:999px;
+      background:rgba(255,255,255,.84);
+      backdrop-filter:blur(20px);
+      box-shadow:0 14px 40px rgba(17,17,17,.08);
+    }
+
+    .logo img {
+      width:auto;
+      height:42px;
+      max-width:230px;
+      object-fit:contain;
+    }
+
+    .nav {
+      display:flex;
+      gap:8px;
+      flex-shrink:0;
+      align-items:center;
+    }
+
+    .nav a {
+      padding:11px 18px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      transition:.2s;
+    }
+
+    .nav a:hover {
+      background:var(--light);
+    }
+
+    .nav .primary {
+      color:var(--white);
+      background:var(--grad);
+      box-shadow:0 10px 24px rgba(155,79,132,.22);
+    }
+
+    .nav .primary:hover {
+  color: var(--white);
+  background: linear-gradient(135deg, #d5769f, #a85a91, #7b407f);
+  box-shadow: 0 10px 24px rgba(155,79,132,.26);
+}
+    .hero {
+      padding:150px 0 58px;
+      text-align:center;
+    }
+
+    .tag {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:18px;
+      padding:8px 14px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(255,255,255,.74);
+      color:var(--p3);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .tag::before {
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--grad);
+    }
+
+    h1 {
+    max-width:860px;
+    margin:0 auto 18px;
+    font-size:clamp(38px,7vw,74px);
+    line-height:1.02;
+    font-weight:800;
+    letter-spacing:-.025em;
+    }
+
+    h1 strong {
+      background:var(--grad);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p {
+      max-width:680px;
+      margin:auto;
+      color:var(--gray);
+      font-size:clamp(16px,2vw,19px);
+      line-height:1.7;
+      font-weight:500;
+    }
+
+    .section {
+      padding:34px 0 80px;
+    }
+
+    .carousel {
+      position:relative;
+      padding:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:var(--radius);
+      background:var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .track {
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:none;
+    }
+
+    .track::-webkit-scrollbar {
+      display:none;
+    }
+
+    .card {
+      position:relative;
+      flex:0 0 calc((100% - 18px) / 2);
+      aspect-ratio:4 / 5;
+      overflow:hidden;
+      border:0;
+      border-radius:24px;
+      background:var(--light);
+      cursor:pointer;
+      scroll-snap-align:start;
+    }
+
+    .card img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .45s;
+    }
+
+    .card::after {
+      content:"Consultar equipamento";
+      position:absolute;
+      right:14px;
+      bottom:14px;
+      left:14px;
+      padding:12px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.88);
+      color:var(--p3);
+      font-size:13px;
+      font-weight:800;
+      text-align:center;
+      opacity:0;
+      transform:translateY(8px);
+      backdrop-filter:blur(14px);
+      transition:.25s;
+    }
+
+    .card:hover img {
+      transform:scale(1.025);
+    }
+
+    .card:hover::after {
+      opacity:1;
+      transform:translateY(0);
+    }
+
+
+    
+    .arrow {
+      position:absolute;
+      top:50%;
+      z-index:2;
+      width:46px;
+      height:46px;
+      border:0;
+      border-radius:50%;
+      background:rgba(255,255,255,.94);
+      color:var(--dark);
+      font-size:28px;
+      line-height:1;
+      cursor:pointer;
+      box-shadow:0 12px 30px rgba(17,17,17,.12);
+      transform:translateY(-50%);
+      transition:.2s;
+    }
+
+    .arrow:hover {
+      transform:translateY(-50%) scale(1.04);
+    }
+
+    .prev {
+      left:28px;
+    }
+
+    .next {
+      right:28px;
+    }
+
+    .contact {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      margin-bottom:70px;
+      padding:38px;
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:var(--radius);
+      background:linear-gradient(135deg,rgba(202,107,149,.10),rgba(111,53,116,.08)),var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .contact h2 {
+      margin-bottom:8px;
+      font-size:clamp(26px,4vw,42px);
+      line-height:1.08;
+      letter-spacing:-.05em;
+    }
+
+    .contact p {
+      color:var(--gray);
+      font-size:16px;
+      line-height:1.6;
+      font-weight:500;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:54px;
+      padding:0 24px;
+      border:0;
+      border-radius:999px;
+      background:var(--grad);
+      color:var(--white);
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 16px 30px rgba(155,79,132,.24);
+      transition:.2s;
+    }
+
+    .btn:hover {
+      transform:translateY(-2px);
+      filter:brightness(1.04);
+    }
+
+    .chat {
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      z-index:80;
+      display:grid;
+      place-items:center;
+      width:62px;
+      height:62px;
+      border:0;
+      border-radius:50%;
+      background:var(--grad);
+      color:var(--white);
+      cursor:pointer;
+      box-shadow:0 18px 36px rgba(111,53,116,.30);
+      isolation:isolate;
+      transition:.2s;
+    }
+
+    .chat::before,
+    .chat::after {
+      content:"";
+      position:absolute;
+      inset:-8px;
+      z-index:-1;
+      border:1px solid rgba(155,79,132,.45);
+      border-radius:50%;
+      animation:pulse 2.4s ease-out infinite;
+    }
+
+    .chat::after {
+      animation-delay:1.2s;
+    }
+
+    .chat svg {
+      width:28px;
+      height:28px;
+      stroke:currentColor;
+    }
+
+    .chat:hover {
+      transform:translateY(-3px) scale(1.03);
+      filter:brightness(1.04);
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity:.75;
+        transform:scale(.88);
+      }
+
+      70%,100% {
+        opacity:0;
+        transform:scale(1.55);
+      }
+    }
+
+    .modal {
+      position:fixed;
+      inset:0;
+      z-index:100;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      background:rgba(17,17,17,.44);
+      backdrop-filter:blur(10px);
+    }
+
+    .modal.active {
+      display:flex;
+    }
+
+    .modal-box {
+      position:relative;
+      width:min(520px,100%);
+      max-height:calc(100vh - 40px);
+      overflow:auto;
+      padding:30px;
+      border-radius:28px;
+      background:var(--white);
+      box-shadow:0 30px 80px rgba(17,17,17,.22);
+      animation:modalIn .25s;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity:0;
+        transform:translateY(12px) scale(.98);
+      }
+
+      to {
+        opacity:1;
+        transform:none;
+      }
+    }
+
+    .close {
+      position:absolute;
+      top:16px;
+      right:16px;
+      width:38px;
+      height:38px;
+      border:0;
+      border-radius:50%;
+      background:var(--light);
+      color:var(--dark);
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    .modal-tag {
+      display:inline-flex;
+      margin-bottom:14px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(202,107,149,.10);
+      color:var(--p3);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .modal h2 {
+      max-width:420px;
+      margin-bottom:10px;
+      font-size:30px;
+      line-height:1.05;
+      letter-spacing:-.05em;
+    }
+
+    .modal p {
+      margin-bottom:22px;
+      color:var(--gray);
+      font-size:14px;
+      line-height:1.7;
+      font-weight:500;
+    }
+
+    form {
+      display:grid;
+      gap:14px;
+    }
+
+    label {
+      display:grid;
+      gap:7px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    input,select,textarea {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid var(--border);
+      border-radius:15px;
+      background:#fafafa;
+      color:var(--dark);
+      font-size:14px;
+      outline:0;
+      transition:.2s;
+    }
+
+    input:focus,select:focus,textarea:focus {
+      border-color:rgba(155,79,132,.45);
+      background:var(--white);
+      box-shadow:0 0 0 4px rgba(202,107,149,.10);
+    }
+
+    textarea {
+      min-height:105px;
+      resize:vertical;
+    }
+
+    footer {
+      padding:54px 20px 28px;
+      border-top:1px solid var(--border);
+      background:var(--white);
+      text-align:center;
+    }
+
+    .footer-logo {
+      width:auto;
+      height:52px;
+      max-width:260px;
+      margin:0 auto 20px;
+      object-fit:contain;
+    }
+
+    .footer-text {
+      max-width:720px;
+      margin:0 auto 28px;
+      color:var(--gray);
+      font-size:14px;
+      line-height:1.8;
+      font-weight:500;
+    }
+
+    .footer-links {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+      margin-bottom:28px;
+    }
+
+    .footer-links a {
+      padding:9px 14px;
+      border-radius:999px;
+      background:var(--light);
+      color:var(--gray);
+      font-size:13px;
+      font-weight:700;
+      transition:.2s;
+    }
+
+    .footer-links a:hover {
+      color:var(--p3);
+      background:rgba(202,107,149,.10);
+    }
+
+    .copy {
+      padding-top:24px;
+      border-top:1px solid var(--border);
+      color:#9ca3af;
+      font-size:12px;
+      line-height:1.8;
+    }
+
+    @media (max-width:760px) {
+      .header {
+        top:12px;
+        width:calc(100% - 24px);
+        padding:10px 12px;
+      }
+
+      .logo img {
+        height:34px;
+        max-width:170px;
+      }
+
+      .nav {
+        gap:4px;
+      }
+
+      .nav a {
+        padding:9px 10px;
+        font-size:12px;
+      }
+
+      .hero {
+        padding-top:128px;
+      }
+
+      .carousel {
+        padding:12px;
+        border-radius:22px;
+      }
+
+      .track {
+        gap:12px;
+      }
+
+      .card {
+        flex-basis:100%;
+        border-radius:20px;
+      }
+
+      .card::after {
+        opacity:1;
+        transform:none;
+        font-size:12px;
+      }
+
+      .arrow {
+        width:40px;
+        height:40px;
+        font-size:24px;
+      }
+
+      .prev {
+        left:18px;
+      }
+
+      .next {
+        right:18px;
+      }
+
+      .contact {
+        flex-direction:column;
+        align-items:flex-start;
+        padding:28px;
+      }
+
+      .contact .btn {
+        width:100%;
+      }
+
+      .chat {
+        right:18px;
+        bottom:18px;
+        width:56px;
+        height:56px;
+      }
+
+      .chat svg {
+        width:25px;
+        height:25px;
+      }
+
+      .modal-box {
+        padding:26px 20px;
+        border-radius:24px;
+      }
+
+      .modal h2 {
+        font-size:26px;
+      }
+    }
+
+    @media (max-width:440px) {
+      .logo img {
+        height:30px;
+        max-width:145px;
+      }
+
+      .nav a {
+        padding:8px 9px;
+        font-size:11.5px;
+      }
+
+      h1 {
+        letter-spacing:-.02em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <a class="logo" href="#" aria-label="InterTech - Página inicial">
+      <img src="SRC/LOGO_INTERTECH_EQUIPAMENTOS.png" alt="InterTech Equipamentos">
+    </a>
+
+    <nav class="nav" aria-label="Navegação principal">
+      <a href="#equipamentos">Equipamentos</a>
+      <a class="primary" href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="tag">Equipamentos seminovos</div>
+
+      <h1>
+        Tecnologia de qualidade com compra mais <strong>inteligente</strong>.
+      </h1>
+
+      <p>
+        A InterTech atua na venda de equipamentos seminovos selecionados, revisados e preparados para clínicas que buscam performance e economia.
+      </p>
+    </section>
+
+    <section class="section container" id="equipamentos">
+      <div class="carousel" aria-label="Carrossel de equipamentos seminovos">
+        <button class="arrow prev" type="button" data-dir="-1" aria-label="Imagem anterior">‹</button>
+
+        <div class="track" id="track">
+          <button class="card" type="button" data-equipment="InterTech 01">
+            <img src="SRC/INTERTECH-01.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 01" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 02">
+            <img src="SRC/INTERTECH-02.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 02" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 03">
+            <img src="SRC/INTERTECH-03.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 03" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 04">
+            <img src="SRC/INTERTECH-04.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 04" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 05">
+            <img src="SRC/INTERTECH-05.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 05" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 06">
+            <img src="SRC/INTERTECH-06.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 06" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 07">
+            <img src="SRC/INTERTECH-07.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 07" loading="lazy" decoding="async">
+          </button>
+
+          <button class="card" type="button" data-equipment="InterTech 08">
+            <img src="SRC/INTERTECH-08.png" width="1080" height="1350" alt="Equipamento seminovo InterTech 08" loading="lazy" decoding="async">
+          </button>
+        </div>
+
+        <button class="arrow next" type="button" data-dir="1" aria-label="Próxima imagem">›</button>
+      </div>
+    </section>
+
+    <section class="contact container" id="contato">
+      <div>
+        <h2>Fale com a InterTech</h2>
+        <p>Consulte disponibilidade, condições comerciais e detalhes técnicos dos equipamentos seminovos.</p>
+      </div>
+
+      <button class="btn" type="button" data-open-modal>Entrar em contato</button>
+    </section>
+  </main>
+
+  <button class="chat" type="button" data-open-modal aria-label="Abrir formulário de contato">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M7.5 10.5h9" stroke-width="2" stroke-linecap="round"/>
+      <path d="M7.5 14h6" stroke-width="2" stroke-linecap="round"/>
+      <path d="M12 3.75c-4.56 0-8.25 3.13-8.25 7 0 2.27 1.27 4.29 3.25 5.57v3.93l3.98-2.58c.33.05.67.08 1.02.08 4.56 0 8.25-3.13 8.25-7s-3.69-7-8.25-7Z" stroke-width="2" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close" type="button" id="closeModal" aria-label="Fechar formulário">×</button>
+
+      <span class="modal-tag">InterTech Equipamentos</span>
+
+      <h2 id="modalTitle">Tenho interesse neste equipamento</h2>
+
+      <p>
+        Preencha seus dados e envie sua solicitação. Nossa equipe entrará em contato
+        para informar disponibilidade, valores e condições comerciais.
+      </p>
+
+      <form id="leadForm">
+        <label>
+          Equipamento
+          <select id="equipment" required>
+            <option value="">Selecione o equipamento</option>
+            <option>InterTech 01</option>
+            <option>InterTech 02</option>
+            <option>InterTech 03</option>
+            <option>InterTech 04</option>
+            <option>InterTech 05</option>
+            <option>InterTech 06</option>
+            <option>InterTech 07</option>
+            <option>InterTech 08</option>
+          </select>
+        </label>
+
+        <label>
+          Nome
+          <input id="name" type="text" placeholder="Seu nome" autocomplete="name" required>
+        </label>
+
+        <label>
+          E-mail
+          <input id="email" type="email" placeholder="seuemail@email.com" autocomplete="email" required>
+        </label>
+
+        <label>
+          WhatsApp
+          <input id="phone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" required>
+        </label>
+
+        <label>
+          Mensagem
+          <textarea id="message" rows="4" placeholder="Olá, gostaria de saber mais sobre este equipamento."></textarea>
+        </label>
+
+        <button class="btn" type="submit">Enviar solicitação</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <img class="footer-logo" src="SRC/LOGO_INTERTECH_EQUIPAMENTOS.png" alt="InterTech Equipamentos">
+
+    <p class="footer-text">
+      A InterTech é especializada na comercialização de equipamentos seminovos,
+      oferecendo soluções selecionadas para clínicas que buscam tecnologia,
+      economia e segurança na aquisição. A disponibilidade dos equipamentos pode
+      variar conforme estoque, avaliação técnica e condições comerciais.
+    </p>
+
+    <div class="footer-links">
+      <a href="#equipamentos">Equipamentos</a>
+      <a href="#contato">Contato</a>
+      <a href="#">Política comercial</a>
+      <a href="#">Garantia e condições</a>
+    </div>
+
+    <div class="copy">
+      © 2026 InterTech. Todos os direitos reservados.<br>
+      Equipamentos seminovos sujeitos à disponibilidade, avaliação técnica e condições comerciais.
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const companyWhatsApp = '5500000000000';
+
+      const $ = (selector, parent = document) => parent.querySelector(selector);
+      const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+
+      const track = $('#track');
+      const cards = $$('.card', track);
+      const modal = $('#modal');
+      const form = $('#leadForm');
+      const equipment = $('#equipment');
+
+      const getGap = () => parseFloat(getComputedStyle(track).gap) || 0;
+      const getVisible = () => innerWidth <= 760 ? 1 : 2;
+      const getStep = () => cards[0].offsetWidth + getGap();
+      const getMaxIndex = () => Math.max(0, cards.length - getVisible());
+
+      function currentIndex() {
+        return Math.round(track.scrollLeft / getStep());
+      }
+
+      function goTo(index) {
+        const safeIndex = Math.max(0, Math.min(index, getMaxIndex()));
+        track.scrollTo({ left: safeIndex * getStep(), behavior: 'smooth' });
+      }
+
+      function moveCarousel(direction) {
+        const next = currentIndex() + direction;
+        goTo(next > getMaxIndex() ? 0 : next < 0 ? getMaxIndex() : next);
+      }
+
+      function openModal(selectedEquipment = '') {
+        equipment.value = selectedEquipment;
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+        setTimeout(() => $('#name').focus(), 80);
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+
+      $$('.arrow').forEach(button => {
+        button.addEventListener('click', () => moveCarousel(Number(button.dataset.dir)));
+      });
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => openModal(card.dataset.equipment));
+      });
+
+      $$('[data-open-modal]').forEach(button => {
+        button.addEventListener('click', () => openModal());
+      });
+
+      $('#closeModal').addEventListener('click', closeModal);
+
+      modal.addEventListener('click', event => {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeModal();
+        if (event.key === 'ArrowRight') moveCarousel(1);
+        if (event.key === 'ArrowLeft') moveCarousel(-1);
+      });
+
+      let autoplay = setInterval(() => moveCarousel(1), 5000);
+
+      track.addEventListener('pointerdown', () => clearInterval(autoplay), { passive:true });
+      track.addEventListener('pointerup', () => {
+        autoplay = setInterval(() => moveCarousel(1), 5000);
+      }, { passive:true });
+
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const text = `
+Olá, tenho interesse em um equipamento seminovo da InterTech.
+
+Equipamento: ${equipment.value || 'Não selecionado'}
+Nome: ${$('#name').value}
+E-mail: ${$('#email').value}
+WhatsApp: ${$('#phone').value}
+
+Mensagem:
+${$('#message').value || 'Gostaria de receber mais informações sobre disponibilidade, valores e condições comerciais.'}
+        `.trim();
+
+        window.open(`https://wa.me/${companyWhatsApp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+
+        form.reset();
+        closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>
