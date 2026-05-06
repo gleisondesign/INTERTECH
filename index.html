@@ -52,6 +52,7 @@
       --shadow:0 20px 50px rgba(15,15,15,.08);
       --radius:28px;
       --grad:linear-gradient(135deg,var(--p1),var(--p2),var(--p3));
+      --section-y:38px;
     }
 
     * {
@@ -153,12 +154,13 @@
     }
 
     .nav .primary:hover {
-  color: var(--white);
-  background: linear-gradient(135deg, #d5769f, #a85a91, #7b407f);
-  box-shadow: 0 10px 24px rgba(155,79,132,.26);
-}
+      color: var(--white);
+      background: linear-gradient(135deg, #d5769f, #a85a91, #7b407f);
+      box-shadow: 0 10px 24px rgba(155,79,132,.26);
+    }
+
     .hero {
-      padding:150px 0 58px;
+      padding:150px 0 var(--section-y);
       text-align:center;
     }
 
@@ -187,12 +189,12 @@
     }
 
     h1 {
-    max-width:860px;
-    margin:0 auto 18px;
-    font-size:clamp(38px,7vw,74px);
-    line-height:1.02;
-    font-weight:800;
-    letter-spacing:-.025em;
+      max-width:860px;
+      margin:0 auto 18px;
+      font-size:clamp(38px,7vw,74px);
+      line-height:1.02;
+      font-weight:800;
+      letter-spacing:-.025em;
     }
 
     h1 strong {
@@ -212,7 +214,31 @@
     }
 
     .section {
-      padding:34px 0 80px;
+      padding:var(--section-y) 0;
+    }
+
+    .catalog-section {
+      scroll-margin-top:120px;
+    }
+
+    .section-title {
+      margin:0 auto 24px;
+      font-size:clamp(26px,4vw,42px);
+      line-height:1.08;
+      letter-spacing:-.05em;
+      text-align:center;
+    }
+
+    .catalog-embed {
+      width:100%;
+      min-height:520px;
+    }
+
+    .catalog-embed iframe {
+      display:block;
+      width:100%;
+      min-height:520px;
+      border:0;
     }
 
     .carousel {
@@ -285,8 +311,6 @@
       transform:translateY(0);
     }
 
-
-    
     .arrow {
       position:absolute;
       top:50%;
@@ -322,12 +346,18 @@
       align-items:center;
       justify-content:space-between;
       gap:24px;
+      margin-top:var(--section-y);
       margin-bottom:70px;
       padding:38px;
       border:1px solid rgba(255,255,255,.9);
       border-radius:var(--radius);
       background:linear-gradient(135deg,rgba(202,107,149,.10),rgba(111,53,116,.08)),var(--white);
       box-shadow:var(--shadow);
+    }
+
+    .contact > div {
+      flex:1 1 auto;
+      max-width:720px;
     }
 
     .contact h2 {
@@ -338,6 +368,7 @@
     }
 
     .contact p {
+      max-width:660px;
       color:var(--gray);
       font-size:16px;
       line-height:1.6;
@@ -346,6 +377,7 @@
 
     .btn {
       display:inline-flex;
+      flex:0 0 auto;
       align-items:center;
       justify-content:center;
       min-height:54px;
@@ -355,6 +387,7 @@
       background:var(--grad);
       color:var(--white);
       font-weight:800;
+      white-space:nowrap;
       cursor:pointer;
       box-shadow:0 16px 30px rgba(155,79,132,.24);
       transition:.2s;
@@ -363,6 +396,18 @@
     .btn:hover {
       transform:translateY(-2px);
       filter:brightness(1.04);
+    }
+
+    .btn-secondary {
+      width:100%;
+      background:var(--light);
+      color:var(--p3);
+      box-shadow:none;
+    }
+
+    .btn-secondary:hover {
+      background:rgba(202,107,149,.10);
+      filter:none;
     }
 
     .chat {
@@ -427,11 +472,11 @@
       inset:0;
       z-index:100;
       display:none;
-      align-items:center;
+      align-items:stretch;
       justify-content:center;
-      padding:20px;
-      background:rgba(17,17,17,.44);
-      backdrop-filter:blur(10px);
+      padding:0;
+      background:rgba(255,255,255,.88);
+      backdrop-filter:blur(12px);
     }
 
     .modal.active {
@@ -440,13 +485,15 @@
 
     .modal-box {
       position:relative;
-      width:min(520px,100%);
-      max-height:calc(100vh - 40px);
+      width:100%;
+      min-height:100vh;
+      max-height:100vh;
       overflow:auto;
-      padding:30px;
-      border-radius:28px;
-      background:var(--white);
-      box-shadow:0 30px 80px rgba(17,17,17,.22);
+      padding:clamp(72px,8vw,96px) clamp(20px,4vw,42px) clamp(28px,5vw,54px);
+      border:0;
+      border-radius:0;
+      background:rgba(255,255,255,.96);
+      box-shadow:none;
       animation:modalIn .25s;
     }
 
@@ -463,17 +510,26 @@
     }
 
     .close {
-      position:absolute;
-      top:16px;
-      right:16px;
-      width:38px;
-      height:38px;
+      position:fixed;
+      top:22px;
+      right:22px;
+      z-index:2;
+      width:42px;
+      height:42px;
       border:0;
       border-radius:50%;
       background:var(--light);
       color:var(--dark);
       font-size:24px;
       cursor:pointer;
+    }
+
+    .modal-box > h2,
+    .modal-subtitle,
+    .modal-box form,
+    .policy-content {
+      width:min(760px,100%);
+      margin-inline:auto;
     }
 
     .modal-tag {
@@ -490,7 +546,7 @@
     }
 
     .modal h2 {
-      max-width:420px;
+      max-width:none;
       margin-bottom:10px;
       font-size:30px;
       line-height:1.05;
@@ -503,6 +559,40 @@
       font-size:14px;
       line-height:1.7;
       font-weight:500;
+    }
+
+    .modal-subtitle {
+      margin-bottom:24px;
+      color:var(--p3);
+      font-size:14px;
+      line-height:1.5;
+      font-weight:800;
+    }
+
+    .policy-content {
+      display:grid;
+      gap:14px;
+      color:var(--gray);
+      font-size:14px;
+      line-height:1.75;
+      font-weight:500;
+    }
+
+    .policy-content h3 {
+      margin-top:8px;
+      color:var(--dark);
+      font-size:16px;
+      line-height:1.3;
+    }
+
+    .policy-content p {
+      margin-bottom:0;
+    }
+
+    .modal-actions {
+      display:grid;
+      gap:10px;
+      margin-top:12px;
     }
 
     form {
@@ -596,6 +686,10 @@
     }
 
     @media (max-width:760px) {
+      :root {
+        --section-y:30px;
+      }
+
       .header {
         top:12px;
         width:calc(100% - 24px);
@@ -618,6 +712,11 @@
 
       .hero {
         padding-top:128px;
+      }
+
+      .catalog-embed,
+      .catalog-embed iframe {
+        min-height:420px;
       }
 
       .carousel {
@@ -658,6 +757,7 @@
         flex-direction:column;
         align-items:flex-start;
         padding:28px;
+        margin-bottom:var(--section-y);
       }
 
       .contact .btn {
@@ -676,9 +776,22 @@
         height:25px;
       }
 
+      .modal {
+        padding:0;
+        align-items:stretch;
+      }
+
       .modal-box {
-        padding:26px 20px;
-        border-radius:24px;
+        width:100%;
+        min-height:100vh;
+        max-height:100vh;
+        padding:64px 20px 26px;
+        border-radius:0;
+      }
+
+      .close {
+        top:18px;
+        right:18px;
       }
 
       .modal h2 {
@@ -711,7 +824,7 @@
     </a>
 
     <nav class="nav" aria-label="Navegação principal">
-      <a href="#equipamentos">Equipamentos</a>
+      <a href="#catalogo">Equipamentos</a>
       <a class="primary" href="#contato">Contato</a>
     </nav>
   </header>
@@ -721,7 +834,7 @@
       <div class="tag">Equipamentos seminovos</div>
 
       <h1>
-        Tecnologia de qualidade com compra mais <strong>inteligente</strong>.
+        Tecnologia de qualidade com <strong>preço justo</strong>.
       </h1>
 
       <p>
@@ -729,7 +842,15 @@
       </p>
     </section>
 
+    <section class="section container catalog-section" id="catalogo">
+      <div class="catalog-embed">
+<script src="https://intertechestoque.lovable.app/embed.js" data-equipamentos async></script>
+      </div>
+    </section>
+
     <section class="section container" id="equipamentos">
+      <h2 class="section-title">Novidades:</h2>
+
       <div class="carousel" aria-label="Carrossel de equipamentos seminovos">
         <button class="arrow prev" type="button" data-dir="-1" aria-label="Imagem anterior">‹</button>
 
@@ -774,7 +895,7 @@
     <section class="contact container" id="contato">
       <div>
         <h2>Fale com a InterTech</h2>
-        <p>Consulte disponibilidade, condições comerciais e detalhes técnicos dos equipamentos seminovos.</p>
+        <p>Solicite atendimento pelo canal oficial do site. Após o envio, nossa equipe comercial entra em contato para esclarecer dúvidas, confirmar disponibilidade e orientar os próximos passos da aquisição.</p>
       </div>
 
       <button class="btn" type="button" data-open-modal>Entrar em contato</button>
@@ -791,16 +912,10 @@
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="close" type="button" id="closeModal" aria-label="Fechar formulário">×</button>
+      <button class="close" type="button" data-close-modal aria-label="Fechar formulário">×</button>
 
-      <span class="modal-tag">InterTech Equipamentos</span>
-
-      <h2 id="modalTitle">Tenho interesse neste equipamento</h2>
-
-      <p>
-        Preencha seus dados e envie sua solicitação. Nossa equipe entrará em contato
-        para informar disponibilidade, valores e condições comerciais.
-      </p>
+      <h2 id="modalTitle">Solicitação de contato</h2>
+      <div class="modal-subtitle">Canal oficial de contato InterTech Equipamentos.</div>
 
       <form id="leadForm">
         <label>
@@ -843,6 +958,40 @@
     </div>
   </div>
 
+  <div class="modal" id="policyModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="policyTitle">
+      <button class="close" type="button" data-close-policy aria-label="Fechar política de compra">×</button>
+
+      <h2 id="policyTitle">Política de compra</h2>
+      <div class="modal-subtitle">Condições gerais para aquisição de equipamentos seminovos InterTech.</div>
+
+      <div class="policy-content">
+        <p>A InterTech Equipamentos atua com equipamentos seminovos selecionados, submetidos a avaliação técnica, conferência de funcionamento e análise de disponibilidade antes da conclusão comercial. As informações apresentadas no site têm caráter informativo e podem ser atualizadas conforme estoque, estado de conservação, acessórios inclusos, condições logísticas e confirmação comercial.</p>
+
+        <h3>1. Solicitação e atendimento</h3>
+        <p>O atendimento para aquisição é iniciado exclusivamente pelo formulário de contato disponível no site intertechequipamentos.com. Após o envio da solicitação, a equipe comercial poderá entrar em contato para confirmar dados, esclarecer dúvidas, apresentar condições de pagamento, validar disponibilidade e orientar as próximas etapas da negociação.</p>
+
+        <h3>2. Disponibilidade, reserva e condições comerciais</h3>
+        <p>A exibição de um equipamento no site não garante reserva automática, venda concluída ou manutenção de preço, pois a disponibilidade depende de confirmação em estoque e validação comercial. Qualquer reserva, proposta, condição de pagamento, prazo de entrega, retirada ou envio somente será considerada válida quando confirmada formalmente pela InterTech Equipamentos em canal oficial de atendimento.</p>
+
+        <h3>3. Estado dos equipamentos</h3>
+        <p>Por se tratarem de equipamentos seminovos, os produtos podem apresentar sinais compatíveis com uso anterior, variações estéticas, marcas superficiais, acessórios distintos entre unidades e características próprias do modelo, do ano, da configuração e do histórico de utilização. A compra pressupõe ciência de que esses fatores não comprometem necessariamente a finalidade principal do equipamento quando ele é disponibilizado para comercialização.</p>
+
+        <h3>4. Conferência e instalação</h3>
+        <p>O comprador deve conferir as informações comerciais, características técnicas, compatibilidade de uso, necessidade de instalação, infraestrutura elétrica, hidráulica, operacional ou profissional habilitado antes da conclusão da aquisição. A InterTech poderá fornecer orientações comerciais e informações disponíveis sobre o equipamento, mas a adequação ao ambiente de uso e às necessidades específicas do comprador deve ser verificada previamente pelo interessado.</p>
+
+        <h3>5. Garantia e suporte</h3>
+        <p>Os equipamentos comercializados pela InterTech contam com garantia comercial de 30 dias, contados a partir da entrega ou retirada, limitada à análise de funcionamento do equipamento nas condições informadas na negociação e mediante uso adequado, instalação correta, conservação compatível e ausência de intervenção não autorizada. A garantia não cobre danos decorrentes de mau uso, quedas, transporte realizado por terceiros, instalação inadequada, variação elétrica, manutenção externa, desgaste natural, consumíveis, acessórios, peças estéticas ou uso em desacordo com as orientações técnicas e comerciais aplicáveis.</p>
+
+        <h3>6. Entrega, retirada e transporte</h3>
+        <p>Prazos, valores e responsabilidades relacionados a entrega, retirada, embalagem, frete, transporte, içamento, instalação ou deslocamento técnico devem ser definidos antes da finalização da compra. Quando o transporte for contratado ou realizado pelo comprador ou por terceiros indicados por ele, eventuais ocorrências logísticas deverão ser tratadas diretamente com o responsável pelo serviço contratado.</p>
+
+        <h3>7. Finalização da compra</h3>
+        <p>A aquisição somente será considerada concluída após confirmação da disponibilidade, aceite das condições comerciais, validação dos dados necessários e confirmação do pagamento conforme a modalidade acordada. Ao prosseguir com a compra, o comprador declara ter lido e compreendido as condições gerais apresentadas, sem prejuízo dos direitos previstos na legislação aplicável.</p>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <img class="footer-logo" src="SRC/LOGO_INTERTECH_EQUIPAMENTOS.png" alt="InterTech Equipamentos">
 
@@ -854,10 +1003,9 @@
     </p>
 
     <div class="footer-links">
-      <a href="#equipamentos">Equipamentos</a>
+      <a href="#catalogo">Equipamentos</a>
       <a href="#contato">Contato</a>
-      <a href="#">Política comercial</a>
-      <a href="#">Garantia e condições</a>
+      <a href="#" data-open-policy>Política de compra</a>
     </div>
 
     <div class="copy">
@@ -876,6 +1024,7 @@
       const track = $('#track');
       const cards = $$('.card', track);
       const modal = $('#modal');
+      const policyModal = $('#policyModal');
       const form = $('#leadForm');
       const equipment = $('#equipment');
 
@@ -898,18 +1047,35 @@
         goTo(next > getMaxIndex() ? 0 : next < 0 ? getMaxIndex() : next);
       }
 
+      function updateBodyLock() {
+        document.body.classList.toggle('modal-open', modal.classList.contains('active') || policyModal.classList.contains('active'));
+      }
+
       function openModal(selectedEquipment = '') {
         equipment.value = selectedEquipment;
         modal.classList.add('active');
         modal.setAttribute('aria-hidden', 'false');
-        document.body.classList.add('modal-open');
+        updateBodyLock();
         setTimeout(() => $('#name').focus(), 80);
       }
 
       function closeModal() {
         modal.classList.remove('active');
         modal.setAttribute('aria-hidden', 'true');
-        document.body.classList.remove('modal-open');
+        updateBodyLock();
+      }
+
+      function openPolicy(event) {
+        if (event) event.preventDefault();
+        policyModal.classList.add('active');
+        policyModal.setAttribute('aria-hidden', 'false');
+        updateBodyLock();
+      }
+
+      function closePolicy() {
+        policyModal.classList.remove('active');
+        policyModal.setAttribute('aria-hidden', 'true');
+        updateBodyLock();
       }
 
       $$('.arrow').forEach(button => {
@@ -924,14 +1090,31 @@
         button.addEventListener('click', () => openModal());
       });
 
-      $('#closeModal').addEventListener('click', closeModal);
+      $$('[data-close-modal]').forEach(button => {
+        button.addEventListener('click', closeModal);
+      });
+
+      $$('[data-open-policy]').forEach(button => {
+        button.addEventListener('click', openPolicy);
+      });
+
+      $$('[data-close-policy]').forEach(button => {
+        button.addEventListener('click', closePolicy);
+      });
 
       modal.addEventListener('click', event => {
         if (event.target === modal) closeModal();
       });
 
+      policyModal.addEventListener('click', event => {
+        if (event.target === policyModal) closePolicy();
+      });
+
       document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') closeModal();
+        if (event.key === 'Escape') {
+          closeModal();
+          closePolicy();
+        }
         if (event.key === 'ArrowRight') moveCarousel(1);
         if (event.key === 'ArrowLeft') moveCarousel(-1);
       });
