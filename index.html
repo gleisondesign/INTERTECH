@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -170,6 +172,17 @@ textarea {
   background: rgba(255, 255, 255, 0.84);
   backdrop-filter: blur(20px);
   box-shadow: 0 14px 40px rgba(17, 17, 17, 0.08);
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease,
+    transform 0.35s ease;
+}
+
+.header.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(-18px);
 }
 
 .logo img {
@@ -831,10 +844,10 @@ footer {
         }(window,0,"amo_forms_","params","load","loaded");
       </script>
       <script
-        id="amoforms_script_1708319"
+        id="amoforms_script_1708339"
         async="async"
         charset="utf-8"
-        src="https://forms.kommo.com/forms/assets/js/amoforms.js?1778651873"
+        src="https://forms.kommo.com/forms/assets/js/amoforms.js?1778817149"
       ></script>
     </div>
   </div>
@@ -849,7 +862,7 @@ footer {
       Condições gerais para aquisição de equipamentos.
     </div>
 
-<div class="policy-content">
+ <div class="policy-content">
           <p>
             A InterTech Equipamentos atua com equipamentos seminovos
             selecionados, submetidos a avaliação técnica, conferência de
@@ -932,6 +945,7 @@ footer {
             direitos previstos na legislação aplicável.<br><br><br><br><br><br><br>
           </p>
         </div>
+
   </div>
 </div>
 
@@ -971,6 +985,7 @@ footer {
   const $ = (s, p = d) => p.querySelector(s);
   const $$ = (s, p = d) => [...p.querySelectorAll(s)];
 
+  const header = $(".header");
   const modal = $("#modal");
   const policyModal = $("#policyModal");
   const cta = $("#floatingCta");
@@ -1051,6 +1066,16 @@ footer {
     }
   };
 
+  const updateHeaderVisibility = () => {
+    const threshold = innerHeight * 0.05;
+
+    if (scrollY > threshold) {
+      header.classList.add("is-hidden");
+    } else {
+      header.classList.remove("is-hidden");
+    }
+  };
+
   let ticking = false;
 
   const requestPlaceCta = () => {
@@ -1059,6 +1084,7 @@ footer {
     ticking = true;
     requestAnimationFrame(() => {
       placeCta();
+      updateHeaderVisibility();
       ticking = false;
     });
   };
@@ -1096,10 +1122,32 @@ footer {
 
   addEventListener("scroll", requestPlaceCta, { passive: true });
   addEventListener("resize", requestPlaceCta, { passive: true });
-  addEventListener("load", placeCta);
+  addEventListener("load", () => {
+    placeCta();
+    updateHeaderVisibility();
+  });
 
   placeCta();
+  updateHeaderVisibility();
 })();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
