@@ -1,0 +1,507 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Obrigado pelo contato | InterTech Equipamentos</title>
+<meta name="description" content="Solicitação recebida com sucesso. A equipe da InterTech Equipamentos entrará em contato em breve." />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="author" content="InterTech Equipamentos" />
+<meta name="theme-color" content="#ffffff" />
+<link rel="canonical" href="https://www.intertechequipamentos.com/obrigado.html" />
+
+<link rel="icon" type="image/png" href="SRC/logo.png" />
+<link rel="shortcut icon" type="image/png" href="SRC/logo.png" />
+<link rel="apple-touch-icon" href="SRC/logo.png" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="InterTech Equipamentos" />
+<meta property="og:title" content="Obrigado pelo contato | InterTech Equipamentos" />
+<meta property="og:description" content="Solicitação recebida com sucesso. A equipe da InterTech Equipamentos entrará em contato em breve." />
+<meta property="og:url" content="https://www.intertechequipamentos.com/obrigado.html" />
+<meta property="og:image" content="https://www.intertechequipamentos.com/SRC/logo.png" />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-93R5BV7WKM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-93R5BV7WKM");
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,"script",
+"https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "1786257145673315");
+fbq("track", "PageView");
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1786257145673315&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Evento de lead confirmado -->
+<script>
+(function () {
+  const leadEventKey = "intertech_lead_sent_tracked";
+
+  if (sessionStorage.getItem(leadEventKey)) {
+    return;
+  }
+
+  sessionStorage.setItem(leadEventKey, "true");
+
+  window.addEventListener("load", function () {
+    if (typeof fbq === "function") {
+      fbq("track", "Lead");
+    }
+
+    if (typeof gtag === "function") {
+      gtag("event", "generate_lead", {
+        method: "kommo_form"
+      });
+    }
+  });
+})();
+</script>
+
+<style>
+:root {
+  --p1: #ca6b95;
+  --p2: #9b4f84;
+  --p3: #6f3574;
+  --white: #fff;
+  --bg: #fbfbfd;
+  --gray: #6b7280;
+  --dark: #171717;
+  --border: rgba(17, 17, 17, 0.08);
+  --shadow: 0 18px 45px rgba(15, 15, 15, 0.08);
+  --grad: linear-gradient(135deg, var(--p1), var(--p2), var(--p3));
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(202, 107, 149, 0.16), transparent 34%),
+    radial-gradient(circle at bottom right, rgba(111, 53, 116, 0.12), transparent 38%),
+    var(--bg);
+  color: var(--dark);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 12px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  min-height: calc(100dvh - 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86)),
+    var(--white);
+  box-shadow: var(--shadow);
+}
+
+.top-actions {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.back-btn,
+.close-btn {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.78);
+  color: var(--p3);
+  font-weight: 750;
+  box-shadow: 0 8px 20px rgba(17, 17, 17, 0.04);
+  backdrop-filter: blur(14px);
+}
+
+.back-btn {
+  padding: 0 13px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.close-btn {
+  width: 38px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  padding: 72px 18px 24px;
+  text-align: center;
+}
+
+h1 {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: clamp(30px, 9.3vw, 50px);
+  line-height: 1;
+  font-weight: 780;
+  letter-spacing: -0.045em;
+}
+
+h1 strong {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 820;
+}
+
+.main-text {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--gray);
+  font-size: 15px;
+  line-height: 1.48;
+  font-weight: 450;
+}
+
+.main-text strong {
+  color: var(--dark);
+  font-weight: 700;
+}
+
+.promo {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: 580px;
+  margin: 2px auto 0;
+  padding: 16px;
+  border: 1px solid rgba(202, 107, 149, 0.18);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(202, 107, 149, 0.1), rgba(111, 53, 116, 0.08)),
+    rgba(255, 255, 255, 0.76);
+}
+
+.promo h2 {
+  color: var(--p3);
+  font-size: clamp(20px, 5.4vw, 28px);
+  line-height: 1.1;
+  font-weight: 760;
+  letter-spacing: -0.035em;
+}
+
+.promo-text {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.step {
+  min-height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--p3);
+  font-size: 12.5px;
+  font-weight: 760;
+  box-shadow: 0 8px 18px rgba(17, 17, 17, 0.05);
+}
+
+.btn {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--grad);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 820;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(155, 79, 132, 0.25);
+  transition: 0.2s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.note {
+  max-width: 540px;
+  margin: -2px auto 0;
+  color: #9ca3af;
+  font-size: 7px;
+  line-height: 1.26;
+  font-weight: 450;
+  opacity: 0.58;
+}
+
+@media (min-width: 420px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    min-height: calc(100dvh - 32px);
+    border-radius: 28px;
+  }
+
+  .top-actions {
+    top: 16px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .content {
+    padding: 78px 24px 30px;
+    gap: 17px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .step {
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 760px) {
+  .page {
+    align-items: center;
+    padding: 28px;
+  }
+
+  .card {
+    width: min(860px, 100%);
+    min-height: auto;
+  }
+
+  .top-actions {
+    top: 18px;
+    left: 18px;
+    right: 18px;
+  }
+
+  .back-btn {
+    min-height: 42px;
+    padding: 0 16px;
+    font-size: 13px;
+  }
+
+  .close-btn {
+    width: 42px;
+    min-height: 42px;
+  }
+
+  .content {
+    padding: 76px 56px 48px;
+    gap: 19px;
+  }
+
+  .main-text {
+    font-size: 17px;
+    line-height: 1.58;
+  }
+
+  .promo {
+    padding: 26px;
+    gap: 15px;
+    border-radius: 26px;
+  }
+
+  .promo-text {
+    font-size: 15.5px;
+    line-height: 1.5;
+  }
+
+  .btn {
+    width: fit-content;
+    min-width: 320px;
+    margin: 0 auto;
+    font-size: 16px;
+  }
+
+  .note {
+    font-size: 7.6px;
+  }
+}
+
+@media (max-height: 700px) and (max-width: 520px) {
+  .content {
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 60px 14px 15px;
+  }
+
+  h1 {
+    font-size: clamp(27px, 9vw, 38px);
+  }
+
+  .main-text {
+    font-size: 13.8px;
+    line-height: 1.38;
+  }
+
+  .promo {
+    gap: 9px;
+    padding: 13px;
+  }
+
+  .promo h2 {
+    font-size: 19px;
+  }
+
+  .promo-text {
+    font-size: 13px;
+    line-height: 1.34;
+  }
+
+  .step {
+    min-height: 33px;
+    font-size: 12px;
+  }
+
+  .btn {
+    min-height: 48px;
+    font-size: 14px;
+  }
+
+  .note {
+    font-size: 6.7px;
+    line-height: 1.2;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="page">
+  <section class="card" aria-labelledby="title">
+    <div class="top-actions">
+      <a
+        class="back-btn"
+        href="https://www.intertechequipamentos.com/"
+        aria-label="Voltar para o site da InterTech"
+      >
+        Voltar ao site
+      </a>
+
+      <a
+        class="close-btn"
+        href="https://www.intertechequipamentos.com/"
+        aria-label="Fechar e voltar para o site da InterTech"
+      >
+        ×
+      </a>
+    </div>
+
+    <div class="content">
+      <h1 id="title">
+        Obrigado pelo <strong>contato</strong>.
+      </h1>
+
+      <p class="main-text">
+        Recebemos sua solicitação. Em breve, a equipe da
+        <strong>InterTech</strong> vai chamar você para tirar dúvidas e
+        apresentar boas oportunidades para o seu próximo equipamento.
+      </p>
+
+      <div class="promo">
+        <h2>Sorteio de equipamentos e acessórios</h2>
+
+        <p class="promo-text">
+          Para participar, siga os passos abaixo:
+        </p>
+
+        <div class="steps" aria-label="Como participar">
+          <div class="step">1. Siga o perfil</div>
+          <div class="step">2. Curta 3 posts</div>
+          <div class="step">3. Comente 1 foto</div>
+        </div>
+
+        <a
+          class="btn"
+          href="https://www.instagram.com/intertechequipamentos"
+          target="_blank"
+          rel="noopener"
+          aria-label="Seguir InterTech Equipamentos no Instagram"
+        >
+          Siga: @IntertechEquipamentos
+        </a>
+
+        <p class="note">
+          *Ações promocionais, sorteios, equipamentos, acessórios e brindes dependem de disponibilidade de estoque, regras da campanha e critérios de elegibilidade. A participação não garante premiação, desconto, reserva ou fornecimento de qualquer item, podendo a ação ser alterada, suspensa ou encerrada sem aviso prévio.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
