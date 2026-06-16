@@ -344,8 +344,7 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
   addEventListener('scroll', requestUpdate, { passive: true }); addEventListener('resize', requestUpdate, { passive: true }); addEventListener('load', requestUpdate);
   const consent = getConsent();
   if (consent === 'accepted') { loadAnalytics(); }
-  else if (consent === 'rejected') { hideCookieBanner(); }
-  else { showCookieBanner(); }
+  hideCookieBanner();
   updateRollingDeadline();
   updateHeaderVisibility();
 })();
