@@ -556,8 +556,10 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
   addEventListener("resize", requestPlaceCta, { passive: true });
   addEventListener("load", requestPlaceCta);
 
-  const consent = getConsent();
-  if (consent === "accepted") loadAnalytics();
+  // TESTE DE RASTREAMENTO: carrega Google Analytics e Meta Pixel automaticamente,
+  // sem depender de consentimento salvo como "accepted" ou clique em "Aceitar".
+  loadAnalytics();
+  hideCookieBanner();
 
   placeCta();
   updateHeaderVisibility();
