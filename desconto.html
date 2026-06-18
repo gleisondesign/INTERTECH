@@ -146,6 +146,7 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
 </head>
 
 <body>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1786257145673315&ev=PageView&noscript=1" alt=""></noscript>
 <header class="header">
   <a class="logo" href="index.html" aria-label="InterTech - Página inicial">
     <img src="SRC/LOGO_INTERTECH_EQUIPAMENTOS.png" alt="InterTech Equipamentos">
@@ -244,7 +245,7 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
       <h3>1. Dados de contato</h3>
       <p>As informações fornecidas no formulário podem incluir nome, telefone, e-mail, mensagem e outros dados necessários ao atendimento. Esses dados são tratados para responder à solicitação e conduzir o relacionamento comercial iniciado pelo próprio usuário.</p>
       <h3>2. Cookies e ferramentas de medição</h3>
-      <p>O site pode utilizar Google Analytics e Meta Pixel para medição de acesso, desempenho de campanhas e melhoria da comunicação digital. Essas ferramentas somente são carregadas após o aceite do usuário no aviso de cookies.</p>
+      <p>O site pode utilizar Google Analytics e Meta Pixel para medição de acesso, desempenho de campanhas e melhoria da comunicação digital. Essas ferramentas estão ativadas nesta versão temporária de teste para validação técnica da campanha.</p>
       <h3>3. Serviços externos</h3>
       <p>O site utiliza serviços de terceiros para exibição de catálogo, formulário de contato, análise de tráfego e integração com plataformas de publicidade. Esses serviços podem operar conforme suas próprias políticas de privacidade e segurança.</p>
       <h3>4. Direitos do titular</h3>
@@ -290,12 +291,48 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
   let savedScrollY = 0, ticking = false, trackersLoaded = false, lastFocusedElement = null;
   const getConsent = () => { try { return localStorage.getItem(CONSENT_KEY); } catch { return null; } };
   const setConsent = v => { try { localStorage.setItem(CONSENT_KEY, v); } catch {} };
+
+  const saveAttributionForDebug = () => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const keys = ["fbclid", "utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "gclid"];
+      const data = { href: window.location.href, referrer: document.referrer || "", savedAt: new Date().toISOString() };
+      keys.forEach(key => { if (params.get(key)) data[key] = params.get(key); });
+      localStorage.setItem("intertech_last_attribution", JSON.stringify(data));
+    } catch {}
+  };
+
   const loadAnalytics = () => {
-    if (trackersLoaded) return; trackersLoaded = true;
-    const gtagScript = d.createElement("script"); gtagScript.async = true; gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`; d.head.appendChild(gtagScript);
-    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag("js", new Date()); gtag("config", GA_ID);
-    !function(f,b,e,v,n,t,s){ if(f.fbq) return; n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments); }; if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version="2.0"; n.queue=[]; t=b.createElement(e); t.async=!0; t.src=v; s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s); }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", META_PIXEL_ID); fbq("track", "PageView");
+    if (trackersLoaded) return;
+    trackersLoaded = true;
+    saveAttributionForDebug();
+
+    const gtagScript = d.createElement("script");
+    gtagScript.async = true;
+    gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    d.head.appendChild(gtagScript);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag("js", new Date());
+    gtag("config", GA_ID);
+
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq) return;
+      n=f.fbq=function(){ n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments); };
+      if(!f._fbq) f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version="2.0";
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s);
+    }(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+
+    fbq("init", META_PIXEL_ID);
+    fbq("track", "PageView");
   };
   const hideCookieBanner = () => { if (cookieBanner) cookieBanner.hidden = true; };
   const showCookieBanner = () => { if (cookieBanner) cookieBanner.hidden = false; };
@@ -342,8 +379,13 @@ footer{padding:54px 20px 28px;border-top:1px solid var(--border);background:var(
   acceptCookies?.addEventListener('click', () => { setConsent('accepted'); hideCookieBanner(); loadAnalytics(); });
   rejectCookies?.addEventListener('click', () => { setConsent('rejected'); hideCookieBanner(); });
   addEventListener('scroll', requestUpdate, { passive: true }); addEventListener('resize', requestUpdate, { passive: true }); addEventListener('load', requestUpdate);
-  const consent = getConsent();
-  if (consent === 'accepted') { loadAnalytics(); }
+
+  /*
+    VERSAO DE TESTE: Pixel e Google Analytics carregam automaticamente.
+    A funcao loadAnalytics() nao depende mais do aceite de cookies.
+    Isso ajuda a Meta a registrar o PageView da landing page antes do usuario enviar o formulario.
+  */
+  loadAnalytics();
   hideCookieBanner();
   updateRollingDeadline();
   updateHeaderVisibility();
