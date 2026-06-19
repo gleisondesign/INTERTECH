@@ -51,22 +51,11 @@ src="https://www.facebook.com/tr?id=1786257145673315&ev=PageView&noscript=1"
 
 <!-- Evento de lead confirmado -->
 <script>
-(function () {
-  const leadEventKey = "intertech_lead_sent_tracked";
-
-  if (sessionStorage.getItem(leadEventKey)) {
-    return;
+window.addEventListener("load", function () {
+  if (typeof fbq === "function") {
+    fbq("track", "Lead");
   }
-
-  sessionStorage.setItem(leadEventKey, "true");
-
-  window.addEventListener("load", function () {
-    if (typeof fbq === "function") {
-      fbq("track", "Lead");
-    }
-
-  });
-})();
+});
 </script>
 
 <style>
